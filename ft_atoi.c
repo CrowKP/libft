@@ -11,37 +11,23 @@
 /* ************************************************************************** */
 int	ft_atoi(const char *str)
 {
-	int result;
-  unsigned int  digit;
-    int sign;
+	int				result;
+	int				sign;
 
-  result = 0;
-  if (*str == 32)
-    str++;
-  if (*str == '-')
-    {
-      sign = 1;
-      str++;
-    }
-  else
-    {
-      sign = 0;
-      if (*str == '+')
-	str++;
-    }
-  while (*str)
-    {
-      digit = *str - '0';
-      if (digit > 9)
+	sign = 0;
+	result = 0;
+	while (*str == 32 || *str == '\t' || *str == '\f'
+		|| *str == '\r' || *str == '\n' || *str == '\v')
+		str++;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign = 1;
+	while (*str >= '0' && *str <= '9')
 	{
-	  break;
+		result = (10 * result) + (*str - '0');
+		str++;
 	}
-      result = (10*result) + digit;
-      str++;
-    }
-  if (sign)
-    {
-      return (-result);
-    }
-  return result;
+	if (sign)
+		return (-result);
+	return (result);
 }
