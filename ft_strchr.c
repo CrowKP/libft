@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aigarcia <aigarcia@student.42barc...>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/09 12:37:33 by aigarcia          #+#    #+#             */
+/*   Updated: 2022/06/09 12:55:25 by aigarcia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 char	*ft_strchr(const char *str, int c)
 {
-  while (*str)
-    {
-      if (*str == c)
-	return (char *)str;
-      str++;
-    }
-  return(0);
+	while (*str)
+	{
+		if (*str == c)
+			return ((char *)str);
+		str++;
+	}
+	return (0);
 }
