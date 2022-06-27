@@ -1,29 +1,28 @@
-char	*ft_strnstr(const char *hay, const char *nee, unsigned int n)
-{
-	char	*stack;
-	char	*dle;
-	char	*temp;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aigarcia <aigarcia@student.42barc...>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/27 19:59:35 by aigarcia          #+#    #+#             */
+/*   Updated: 2022/06/27 19:59:36 by aigarcia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-	stack = (char *)hay;
-	dle = (char *)nee;
+char	*ft_strnstr(const char *hay, const char *nee, size_t n)
+{
+	size_t	it;
+
+	it = ft_strlen(nee);
 	if (*nee == '\0')
-		return (stack);
-	if (n <= 0 || *stack == '\0')
-		return (0);
-	while (*stack != *dle && n > 0)
+		return ((char *)hay);
+	while (*hay != '\0' && it <= n--)
 	{
-		stack++;
-		n--;
+		if (!(ft_strncmp((char *)hay, (char *)nee, it)))
+			return ((char *)hay);
+		hay++;
 	}
-	temp = stack;
-	while (*stack == *dle && n > 0)
-	{
-		stack++;
-		dle++;
-		n--;
-	}
-	if (*dle == '\0' && n > 0)
-		return (temp);
-	else
-		return (0);
+	return (0);
 }
