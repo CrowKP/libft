@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aigarcia <aigarcia@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 12:32:29 by aigarcia          #+#    #+#             */
-/*   Updated: 2022/06/09 12:54:14 by aigarcia         ###   ########.fr       */
+/*   Created: 2022/06/23 15:04:02 by aigarcia          #+#    #+#             */
+/*   Updated: 2022/06/23 15:04:03 by aigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 void	*ft_memmove(void *des, const void *src, unsigned int n)
@@ -18,6 +18,8 @@ void	*ft_memmove(void *des, const void *src, unsigned int n)
 
 	d = des;
 	s = src;
+	if (s == 0 && d == 0)
+		return (0);
 	if (d < s)
 		while (n--)
 			*d++ = *s++;

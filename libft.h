@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aigarcia <aigarcia@student.42barc...>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 11:58:31 by aigarcia          #+#    #+#             */
-/*   Updated: 2022/06/09 12:50:24 by aigarcia         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -35,5 +24,7 @@ int				ft_strncmp(const char *str1, const char *str2, unsigned int n);
 void			*ft_memchr(const void *src, int c, unsigned int n);
 int				ft_memcmp(const void *str1, const void *str2, unsigned int n);
 int				ft_atoi(const char *str);
+void			ft_bzero(void *str, unsigned int n);
+char			*ft_strnstr(const char *hay, const char *nee, size_t n);
 
 #endif

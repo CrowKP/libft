@@ -5,17 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aigarcia <aigarcia@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 12:37:33 by aigarcia          #+#    #+#             */
-/*   Updated: 2022/06/09 12:55:25 by aigarcia         ###   ########.fr       */
+/*   Created: 2022/06/21 15:58:39 by aigarcia          #+#    #+#             */
+/*   Updated: 2022/06/21 15:58:41 by aigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 char	*ft_strchr(const char *str, int c)
 {
-	while (*str)
+	char	*s;
+
+	s = (char *)str;
+	if (c > 256)
 	{
-		if (*str == c)
-			return ((char *)str);
-		str++;
+		if (c == 1024)
+			c = '\0';
+		else
+			c = (c - 256);
 	}
-	return (0);
+	while (*s != c)
+	{
+		if (*s == '\0')
+			return (0);
+		s++;
+	}
+	return (s);
 }
