@@ -27,5 +27,6 @@ int				ft_atoi(const char *str);
 void			ft_bzero(void *str, unsigned int n);
 char			*ft_strnstr(const char *hay, const char *nee, size_t n);
 void			*ft_calloc(size_t count, size_t size);
+char			*ft_strdup(const char *str);
 
 #endif
