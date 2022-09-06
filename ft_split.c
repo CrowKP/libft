@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aigarcia <aigarcia@student.42barc...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 14:32:03 by aigarcia          #+#    #+#             */
-/*   Updated: 2022/07/01 14:32:05 by aigarcia         ###   ########.fr       */
+/*   Created: 2022/07/18 17:46:18 by aigarcia          #+#    #+#             */
+/*   Updated: 2022/07/18 17:46:19 by aigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -52,19 +52,35 @@ static void	ft_free(char **strs, int jt)
 	free(strs);
 }
 
+static char	**ft_check(char const *s, char c)
+{
+	char	**str;
+	int		word;
+
+	word = ft_count_word(s, c);
+	str = (char **)malloc((word + 1) * sizeof(char *));
+	if (!str)
+	{
+		free(str);
+		return (0);
+	}
+	else
+		return (str);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		it;
-	int		word;
 	char	**strs;
 	size_t	size;
 	int		jt;
 
 	it = 0;
 	jt = -1;
-	word = ft_count_word(s, c);
-	strs = (char **)malloc((word + 1) * sizeof(char *));
-	while (++jt < word)
+	strs = ft_check(s, c);
+	if (!strs)
+		return (0);
+	while (++jt < ft_count_word(s, c))
 	{
 		while (s[it] == c)
 			it++;
